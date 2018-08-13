@@ -1,0 +1,20 @@
+/* 
+    Document   : mystyle5
+    Created on : 22 Oct, 2014, 4:37:18 PM
+    Author     : Santanu Saha
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+.adjust{
+    height: auto;
+    margin-top: -195px;
+}
+root { 
+    display: block;
+}
+

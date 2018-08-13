@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <form-beans>
+        <form-bean name="Admin" type="com.myapp.struts.Admin"/>
+        <form-bean name="Clerk" type="com.myapp.struts.Clerk"/>
+        <form-bean name="Complaint" type="com.myapp.struts.Complaint"/>
+        <form-bean name="Cse" type="com.myapp.struts.Cse"/>
+        <form-bean name="Solution" type="com.myapp.struts.Solution"/>
+    </form-beans>
+    
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="welcome"  path="/Welcome.do"/>
+    </global-forwards>
+
+    <action-mappings>
+        <action input="/adminLoginTile.jsp" name="Admin" path="/adminLogServ" scope="session" type="com.myapp.struts.adminLogServ">
+             <forward name ="success" path ="/adminHomeTile.jsp"/>
+             <forward name ="fail" path ="/adminLoginTile.jsp?msg=Invalid User or Password"/>
+        </action>
+        <action input="/clerkLoginTile.jsp" name="Clerk" path="/ClerkLogServ" scope="session" type="com.myapp.struts.ClerkLogServ">
+            <forward name ="success" path ="/clerkHomeTile.jsp"/>
+            <forward name ="fail" path ="/clerkLoginTile.jsp?msg=Invalid User or Password"/>
+        </action>
+        <action input="/cseLoginTile.jsp" name="Cse" path="/CseLogServ" scope="session" type="com.myapp.struts.CseLogServ">
+             <forward name ="success" path ="/cseHomeTile.jsp"/>
+             <forward name ="fail" path ="/cseLoginTile.jsp?msg=Invalid User or Password"/>
+        </action>
+        <action input="/AddClerkTile.jsp" name="Clerk" path="/ClerkRegServ" scope="session" type="com.myapp.struts.ClerkRegServ">
+             <forward name="success"  path="/nextTile.jsp"/>
+        </action>
+        <action input="/AddCseTile.jsp" name="Cse" path="/CseRegServ" scope="session" type="com.myapp.struts.CseRegServ">
+            <forward name="success"  path="/nextTile.jsp"/>
+        </action>
+        <action input="/chckStatTile.jsp" name="Complaint" path="/ChkClientServ" scope="request" type="com.myapp.struts.ChkClientServ">
+             <forward name="success"  path="/checkStatusTile.jsp"/>
+            </action>
+            <action input="/newComplaintTile.jsp" name="Complaint" path="/NewComplaintServ" scope="session" type="com.myapp.struts.NewComplaintServ">
+                <forward name="success"  path="/compRegTile.jsp"/>
+                </action>
+                <action path="/UnassignedServ" type="com.myapp.struts.UnassignedServ">
+                    <forward name="success"  path="/unassignedTile.jsp"/>
+                </action>
+                <action path="/ListCompServ" type="com.myapp.struts.ListCompServ">
+                     <forward name="success"  path="/listCompTile.jsp"/>
+                </action>
+                <action path="/Assign" type="com.myapp.struts.Assign">
+                    <forward name="success"  path="/assignCseTile.jsp"/>
+                 </action>
+                 <action input="/assignCseTile.jsp" name="Complaint" path="/AssignCse" scope="session" type="com.myapp.struts.AssignCse">
+                     <forward name="success" path="/assignnxtTile.jsp"/>
+                 </action>
+                 <action input="/chckAsgComTile.jsp" name="Complaint" path="/AssignedComp" scope="session" type="com.myapp.struts.AssignedComp">
+                     <forward name="success" path="/assignedCompTile.jsp"/>
+                 </action>
+                 <action path="/AssignedComp1" type="com.myapp.struts.AssignedComp1">
+                 <forward name="success" path="/assignedComp1Tile.jsp"/>
+                 </action>
+                 <action path="/Sol" type="com.myapp.struts.Sol">
+                 <forward name="success" path="/solutionTile.jsp"/>
+                 </action>
+                 <action input="/solutionTile.jsp" name="Solution" path="/SolutionServ" scope="session" type="com.myapp.struts.SolutionServ">
+                      <forward name="success" path="/solveTile.jsp"/>
+                      </action>
+                      <action path="/LogoutServ" type="com.myapp.struts.LogoutServ">
+                          <forward name="success" path="/welcomeTile.jsp"/>
+                      </action>
+                      <action path="/ClLogoutServ" type="com.myapp.struts.ClLogoutServ">
+                          <forward name="success" path="/welcomeTile.jsp"/>
+                      </action>
+                      <action path="/CseLogoutServ" type="com.myapp.struts.CseLogoutServ">
+                          <forward name="success" path="/welcomeTile.jsp"/>
+                      </action>
+                      <action input="/Solution1.jsp" name="Solution" path="/SolutionServ1" scope="session" type="com.myapp.struts.SolutionServ1">
+                        <forward name="success" path="/solve.jsp"/>
+                      </action>
+                      <action path="/Delete" type="com.myapp.struts.Delete">
+                          <forward name="success" path="/deleteTile.jsp"/>
+                          </action>
+
+                
+                 
+                
+                
+                 
+                
+
+
+                
+            
+        
+        
+        <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>    
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>

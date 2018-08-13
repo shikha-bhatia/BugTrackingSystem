@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16 Oct, 2014 9:38:24 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.myapp.struts.Solution" table="SOLUTION" schema="HLPDSK">
+        <id name="sid" type="int">
+            <column name="SID" length="20" />
+            <generator class="increment" />
+        </id>
+        <property name="sdate" type="string">
+            <column name="SDATE" length="7" />
+        </property>
+        <property name="soltext" type="string">
+            <column name="SOLTEXT" length="50" />
+        </property>
+        <property name="cse" type="string">
+            <column name="CSE" length="20" />
+        </property>
+        <property name="cuname" type="string">
+            <column name="CUNAME" length="20" />
+        </property>
+    </class>
+</hibernate-mapping>

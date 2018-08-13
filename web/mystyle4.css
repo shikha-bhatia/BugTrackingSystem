@@ -1,0 +1,18 @@
+/* 
+    Document   : mystyle4
+    Created on : 22 Oct, 2014, 3:38:54 PM
+    Author     : Santanu Saha
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+.adjusttable
+
+{
+    height: auto;
+    margin-top: -140px;
+}

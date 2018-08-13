@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16 Oct, 2014 9:38:24 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.myapp.struts.Complaint" table="COMPLAINT" schema="HLPDSK">
+        <id name="cid" type="int">
+            <column name="CID" precision="6" scale="0" />
+            <generator class="increment" />
+        </id>
+        <property name="ctext" type="string">
+            <column name="CTEXT" length="50" />
+        </property>
+        <property name="doc" type="string">
+            <column name="DOC" length="7" />
+        </property>
+        <property name="cuname" type="string">
+            <column name="CUNAME" length="20" />
+        </property>
+        <property name="lud" type="string">
+            <column name="LUD" length="7" />
+        </property>
+        <property name="cse" type="string">
+            <column name="CSE" length="20" />
+        </property>
+        <property name="adate" type="string">
+            <column name="ADATE" length="7" />
+        </property>
+        <property name="lfeed" type="string">
+            <column name="LFEED" length="50" />
+        </property>
+        <property name="lfd" type="string">
+            <column name="LFD" length="7" />
+        </property>
+        <property name="status" type="string">
+            <column name="STATUS" length="3" />
+        </property>
+    </class>
+</hibernate-mapping>
